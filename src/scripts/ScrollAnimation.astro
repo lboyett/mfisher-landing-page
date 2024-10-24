@@ -1,0 +1,22 @@
+<script>
+  function scrollCarousel() {
+    document.body.style.setProperty("--scrollPosition", "0%");
+    var currentPosition = 0;
+    function changePosition(e: any) {
+      e.preventDefault();
+      currentPosition += -e.deltaY;
+
+      if (currentPosition < -2700 || currentPosition > 2700) {
+        currentPosition = 0;
+      }
+      document.body.style.setProperty(
+        "--scrollPosition",
+        `${currentPosition}px`,
+      );
+    }
+    const element = document.scrollingElement || document.documentElement;
+    element.addEventListener("wheel", changePosition, { passive: false });
+  }
+
+  scrollCarousel();
+</script>

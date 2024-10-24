@@ -1,0 +1,15 @@
+<script>
+  async function loadImages() {
+    for (let i = 1; i <= 10; i++) {
+      const imgElements = [];
+      for (let j = 1; j <= 3; j++) {
+        imgElements.push(await import(`../assets/${i}.webp`));
+        const img = document.createElement("img");
+        img.src = imgElements[j - 1].default.src;
+        document.querySelector(`.carousel-${j}`)?.appendChild(img);
+      }
+    }
+    console.log(document.querySelector(".carousel-2")?.scrollWidth);
+  }
+  loadImages();
+</script>

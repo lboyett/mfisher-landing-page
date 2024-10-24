@@ -1,0 +1,15 @@
+<script>
+  function makeProgressBars() {
+    const progress = document.querySelector(".progress");
+
+    for (let i = 0; i < 40; i++) {
+      if (!progress) return;
+      const bar = document.createElement("div");
+      bar.classList.add("bar");
+      bar.id = `bar-${i}`;
+      progress.appendChild(bar);
+    }
+  }
+
+  makeProgressBars();
+</script>
